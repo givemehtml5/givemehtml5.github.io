@@ -4,12 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+Vintage platfomers lover, I'll try to develop both a fun html5 game and a blog in parallel.
+The goa of the blog is to explain the different steps of development.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[givemehtml5@gmail.com](mailto:givemehtml5@gmail.com)
