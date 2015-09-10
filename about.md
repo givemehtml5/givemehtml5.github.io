@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 Vintage platfomers lover, I'll try to develop both a fun html5 game and a blog in parallel.
-The goa of the blog is to explain the different steps of development.
+The aim of the blog is to explain the different steps of development.
 
 ### Contact me
 
