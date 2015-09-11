@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Week 1 : Setting up the game
+title: Week 1 - Setting up the game
 ---
 
 First things first, the main component we are going to use to integrate the game is the <canvas> element. This element is used to draw graphics on an html page.
