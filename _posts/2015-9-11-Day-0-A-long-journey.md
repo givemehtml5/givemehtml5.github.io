@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The first day !
+title: Day 0 : The first day !
 ---
 
 ## This is the first day of a long journey: learning JavaScript by developing an html5 game.
