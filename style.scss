@@ -15,9 +15,11 @@
 
 html {
   font-size: 100%;
+  height:100%
 }
 
 body {
+min-height: 100%;
 	background: $white;
   font: 18px/1.4 $helvetica;
   color: $darkGray;
@@ -169,11 +171,11 @@ canvas {
 //
 
 .wrapper-masthead {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .masthead {
-  padding: 20px 0;
+  padding: 2px 0;
   border-bottom: 1px solid $lightGray;
 
   @include mobile {
@@ -183,8 +185,8 @@ canvas {
 
 .site-avatar {
   float: left;
-  width: 70px;
-  height: 70px;
+  width: 30px;
+  height: 30px;
   margin-right: 15px;
 
   @include mobile {
@@ -224,7 +226,7 @@ canvas {
   font-size: 16px;
 
   @include mobile {
-    margin: 3px 0;
+    display : none;
   }
 }
 
