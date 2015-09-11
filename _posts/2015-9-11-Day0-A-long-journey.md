@@ -35,7 +35,7 @@ It will be composed of 2 different modules, first module will load all assets to
 
 Second module will be the main loop. This loop will be repeated while the user is playing the game.
 It can be summarize with the diagram below :
- ![main-loop]({{ site.baseurl }}/images/posts/2015-9-11/main_loop.png)
+ ![main-loop](https://github.com/givemehtml5/givemehtml5.github.io/blob/master/images/posts/2015-9-11/main_loop.png)
 
 This was just theory and there are lots of additional features that will be added during the development of this game like how will the menu be managed, how to handle the update step timing in real-time games, or the enemy IA..... a long journey.... But I'll start at the beginning:
 
