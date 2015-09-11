@@ -1,9 +1,11 @@
 ---
 layout: post
 title: The first day !
+excerpt: This is the first day of a long journey: learning JavaScript by developing an html5 game.
+
 ---
+
 This is the first day of a long journey: learning JavaScript by developing an html5 game.
-<!--more-->
 I heard a lot about html5 and I told myself: Hey! This html5 is the new C++, fantastic!
 The point is, that html5 game is not written in html ... but in JavaScript ... Arghh!
 What is JavaScript? I thought it was only used to get some text changing color...
