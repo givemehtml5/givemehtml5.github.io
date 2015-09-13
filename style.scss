@@ -298,11 +298,8 @@ nav {
 }
 
 .entry_excerpt {
-    font-size: 15px;
-    float: left;
-    max-height:70px;
-    max-width:70px;
     
+    float: left;
     
   }
 
@@ -310,6 +307,8 @@ nav {
     display: inline;
     margin: 5px;
     border: 1px solid #ffffff;
+    max-height:70px;
+    max-width:70px;
 }
 
 
