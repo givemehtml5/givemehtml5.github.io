@@ -7,7 +7,7 @@ layout: default
     <article class="post">
 
       <div class="entry_excerpt">
-        {{ post.excerpt }}
+        {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
          <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
       </div>
 
