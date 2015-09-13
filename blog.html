@@ -6,10 +6,10 @@ layout: default
   {% for post in site.posts %}
     <article class="post">
 
-      <div class="entry_excerpt">
+      <h2 class="entry_excerpt">
         {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-      </div>
+      </h2>
 
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
     </article>
