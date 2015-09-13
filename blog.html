@@ -8,8 +8,8 @@ layout: default
 
       <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
 
-      <div class="entry">
-        {{ post.excerpt| strip_htm }}
+      <div class="entry_excerpt">
+        {{ post.excerpt| strip_html }}
       </div>
 
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
