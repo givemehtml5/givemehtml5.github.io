@@ -300,8 +300,14 @@ nav {
 .entry {
     font-size: 15px;
     max-height:70px;
+    
   }
 
+.entry img {
+    display: inline;
+    margin: 5px;
+    border: 1px solid #ffffff;
+}
 
 
 .wrapper-footer {
