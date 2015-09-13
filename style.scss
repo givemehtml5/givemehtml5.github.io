@@ -299,8 +299,6 @@ nav {
 
 .entry_excerpt {
     
-    float: left;
-    
   }
 
 .entry_excerpt img {
@@ -310,7 +308,11 @@ nav {
     max-height:70px;
     max-width:70px;
 }
-
+.entry_excerpt a {
+    
+    float: right;
+    
+  }
 
 .wrapper-footer {
   margin-top: 30px;
