@@ -52,6 +52,12 @@ h1 {
   a {
     color: inherit;
   }
+  .game{
+	font-size: 0.8em;
+	text-align:right;
+	line-height: .8em;
+	  margin: .1em;
+  }
 }
 
 h2 {
@@ -175,7 +181,7 @@ img {
 //
 
 .wrapper-masthead {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   @include mobile {
       margin-bottom: 0.2em;
     }
