@@ -21,7 +21,7 @@ html {
 body {
 	min-height: 100%;
 	background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 100% $helvetica;
   color: $darkGray;
 }
 
@@ -33,13 +33,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: $darkGray;
+  color: $darkGray;
   font-family: $helveticaNeue;
   font-weight: 300;
   letter-spacing: 1px;
 
   line-height: 1.5;
-  margin: 1em 0 15px;
+  margin: 1em 0 1em;
   padding: 0;
 
   @include mobile {
@@ -48,30 +48,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 1.8em;
   a {
     color: inherit;
   }
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 1.5em;
   a {
     color: inherit;
   }
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 1.3em;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 1.1em;
   color: $gray;
 }
 
 p {
-  margin: 15px 0;
+  margin: 1em 0;
 }
 
 a {
@@ -84,8 +84,8 @@ a {
 }
 
 ul, ol {
-  margin: 15px 0;
-  padding-left: 30px;
+  margin: 1em 0;
+  padding-left: 2em;
 }
 
 ul {
@@ -175,11 +175,11 @@ canvas {
 //
 
 .wrapper-masthead {
-  margin-bottom: 30px;
+  margin-bottom: 2em;
 }
 
 .masthead {
-  padding: 2px 0;
+  padding: 0.1em 0;
   border-bottom: 1px solid $lightGray;
 
   @include mobile {
@@ -189,9 +189,9 @@ canvas {
 
 .site-avatar {
   float: left;
-  width: 40px;
-  height: 40px;
-  margin: 5px 15px 5px 5px;
+  max-width: 40px;
+  max-height: 40px;
+  margin: 0.3em 1em 0.3em 0.3em;
 
   @include mobile {
     display: none;
@@ -199,7 +199,7 @@ canvas {
   }
 
   img {
-    border-radius: 5px;
+    border-radius: 0.3em;
   }
 }
 
@@ -219,7 +219,7 @@ canvas {
   cursor: pointer;
   font-family: $helveticaNeue;
   font-weight: 300;
-  font-size: 28px;
+  font-size: 1.8em;
   letter-spacing: 1px;
   a {
     color: inherit;
@@ -227,9 +227,9 @@ canvas {
 }
 
 .site-description {
-  margin: -5px 0 0 0;
+  margin: 0.3em 0 0 0;
   color: $gray;
-  font-size: 16px;
+  font-size: 1em;
 
   @include mobile {
     display : none;
@@ -238,26 +238,26 @@ canvas {
 
 nav {
   float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
+  margin-top: 1.4em; 
   font-family: $helveticaNeue;
-  font-size: 18px;
+  font-size: 1.1em;
 
   @include mobile {
     float: none;
-    margin-top: 9px;
+    margin-top: 0.6em;
     display: block;
-    font-size: 16px;
+    font-size: 1em;
   }
 
   a {
-    margin-left: 20px;
+    margin-left: 1.2em;
     color: $darkGray;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
 
     @include mobile {
-      margin: 0 10px;
+      margin: 0 0.7em;
       color: $blue;
     }
   }
@@ -283,17 +283,17 @@ nav {
     border-left: 2px solid $gray;
     padding: 0.1em 1em;
     color: $gray;
-    font-size: 22px;
+    font-size: 1.4em;
     font-style: italic;
   }
 
   .comments {
-    margin-top: 10px;
+    margin-top: 0.7em;
   }
 
   .read-more {
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 1em;
   }
 }
 
@@ -303,7 +303,7 @@ nav {
 
 .entry_excerpt img {
     display: inline;
-    margin: 5px;
+    margin: 0.3em;
     border: 1px solid #ffffff;
     max-height:70px;
     max-width:70px;
@@ -317,16 +317,24 @@ nav {
   letter-spacing: 1px;
     
   }
+  
+ .entry_excerpt span {
+      color: $darkGray;
+  font-family: $helveticaNeue;
+  font-weight: 300;
+  letter-spacing: 1px;
+    
+  }
 
 .wrapper-footer {
-  margin-top: 30px;
+  margin-top: 2em;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: $lightGray;
 }
 
 footer {
-  padding: 10px 0;
+  padding: 0.7em 0;
   text-align: center;
 }
 

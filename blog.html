@@ -9,7 +9,7 @@ layout: default
       <h2 class="entry_excerpt">
         {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-		 <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">{{ post.date | date: "%B %e, %Y" }}</a>
+		 <span>{{ post.date | date: "%B %e, %Y" }}</span>
       </h2>
 
       
