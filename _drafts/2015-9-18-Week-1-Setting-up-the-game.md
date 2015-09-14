@@ -46,7 +46,7 @@ If not, the getElementById will return "null" as the component has not been load
 You can also place the Javascript inside the <head> section and use the onload function. Now we can start looking at :
 
 ##The main loop
-As I described it in the [previous post](http://givemehtml5.github.io/Day-0-A-long-journey#game_engine), the main loop is the heart of the game.
+As I described it in the [previous post](http://givemehtml5.github.io/Day-0-A-long-journey/#game_engine), the main loop is the heart of the game.
 In Javascript the main loop is done by calling the main_loop function repetitively, and this repetition can be done with 2 different techniques :
 First technique is to call [set interval](http://www.w3schools.com/jsref/met_win_setinterval.asp) function. But I prefer using [request animation](http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/) function which is described in Paul Irish blog.
 
