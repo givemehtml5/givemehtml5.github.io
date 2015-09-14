@@ -1,2 +1,2 @@
-var canvas=document.getElementById("canvas"),ctx=canvas.getContext("2d")
+var canvas=document.getElementById("canvas"),ctx=canvas.getContext("2d");ctx.canvas.width  = window.innerWidth;ctx.canvas.height = window.innerHeight*.8;
 ctx.fillStyle="#CEECF5",ctx.fillRect(0,0,canvas.width,canvas.height),ctx.fillStyle="#000000",ctx.fillText("Hello World",canvas.width/2,canvas.height/2)
