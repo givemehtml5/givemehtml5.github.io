@@ -30,6 +30,7 @@ body {
   max-width: 740px;
   padding: 0 10px;
   width: 100%;
+  max-height:80%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -176,6 +177,7 @@ canvas {
 
 .wrapper-masthead {
   margin-bottom: 2em;
+  max-height:10%;
 }
 
 .masthead {
@@ -349,6 +351,7 @@ nav {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: $lightGray;
+  max-height:10%;
 }
 
 footer {
