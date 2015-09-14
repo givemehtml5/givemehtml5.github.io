@@ -9,9 +9,10 @@ layout: default
       <h2 class="entry_excerpt">
         {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+		 <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">{{ post.date | date: "%B %e, %Y" }}</a>
       </h2>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      
     </article>
   {% endfor %}
 </div>
