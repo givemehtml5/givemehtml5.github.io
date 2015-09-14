@@ -267,6 +267,13 @@ nav {
 // .main
 //
 
+.blog_desc {
+  color: $darkGray;
+  font-family: $helveticaNeue;
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+
 .posts > .post {
   padding-bottom: 2em;
   border-bottom: 1px solid $lightGray;
@@ -311,11 +318,12 @@ nav {
 
 .entry_excerpt img {
     display: inline;
-    margin: 0.3em;
+    margin: 0.2em 0.3em;
     border: 1px solid #ffffff;
     max-height:70px;
     max-width:70px;
     float: left;
+	
 
 }
 .entry_excerpt a {
@@ -332,7 +340,7 @@ nav {
   font-family: $helvetica;
   font-weight: 300;
   letter-spacing: 1px;
-  font-size: 1em;
+  font-size: 0.9em;
     
   }
 
