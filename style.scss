@@ -297,6 +297,14 @@ nav {
   }
 }
 
+
+.entry {
+  
+  font-family: $helvetica;
+  font-size: 1em;
+    
+  }
+  
 .entry_excerpt:hover {
     background-color:#f7f7f7
   }
@@ -319,10 +327,12 @@ nav {
   }
   
  .entry_excerpt span {
-      color: $darkGray;
-  font-family: $helveticaNeue;
+   font-style: italic;
+  color: $gray;
+  font-family: $helvetica;
   font-weight: 300;
   letter-spacing: 1px;
+  font-size: 1em;
     
   }
 
