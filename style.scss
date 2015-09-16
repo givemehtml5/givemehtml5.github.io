@@ -231,6 +231,11 @@ margin: .1em .5em .1em .1em;
   font-weight: 300;
   font-size: 1.8em;
   letter-spacing: 1px;
+  
+  @include mobile {
+    display: none;
+  }
+  
   a {
     color: inherit;
   }
