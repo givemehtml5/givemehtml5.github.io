@@ -55,7 +55,7 @@ h1 {
 
 }
 
-h1.game {
+h1.game_title {
 	font-size: 0.8em;
 	text-align:right;
 	line-height: .8em;
@@ -162,9 +162,10 @@ img {
 
 
 .canvas-wrapper {
-		width: 800px;
+		width: 80vw;
 		max-width: 100%;
-		height: auto;		
+		height: 80vh;	
+border: 1px solid black;		
 }
 
 #canvas {
