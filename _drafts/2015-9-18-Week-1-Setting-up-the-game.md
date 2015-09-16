@@ -15,6 +15,7 @@ Your browser does not support the HTML5 canvas tag.
 ```
 
 And here is the result on the html page :
+![canvas_example1](/images/posts/2015-9-18/1.png "canvas example 1")
 
 
 Easy !
@@ -26,8 +27,7 @@ var canvas = document.getElementById( 'canvas');
 
 This line will create a variable which contain our canvas element on the html page.
 If we then get the context and write something we get :
-![canvas_example1](/images/posts/2015-9-18/canvas_example1.png "canvas example 1")
-
+![canvas_example2](/images/posts/2015-9-18/2.png "canvas example 2")
 
 Hello World ! 99% of the job is done !! (Well, maybe less than that). 
 
@@ -51,8 +51,7 @@ In Javascript the main loop is done by calling the main_loop function repetitive
 First technique is to call [set interval](http://www.w3schools.com/jsref/met_win_setinterval.asp) function. But I prefer using [request animation](http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/) function which is described in Paul Irish blog.
 
 This Polyfill allows the script to loop on the desired function. Below the result :
-![canvas_example2](/images/posts/2015-9-18/canvas_example2.png "canvas example 2")
-
+![canvas_example3](/images/posts/2015-9-18/3.png "canvas example 3")
 
 Well... Not so good !
 Of course if we talk about displaying assets or text each iteration of the loop, then we need to clear the screen at each step by adding :
@@ -61,8 +60,7 @@ context.clearRect(0, 0, canvas.width, canvas.height);
 ```
 
 And that works fine !! 
-![canvas_example3](/images/posts/2015-9-18/canvas_example3.png "canvas example 3")
-
+![canvas_example4](/images/posts/2015-9-18/4.png "canvas example 4")
 
 We have now set-up the canvas element on the web page and the main loop of our game.
 Next step will be to detect the player inputs...
