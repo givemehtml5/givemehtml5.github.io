@@ -244,6 +244,9 @@ margin: .1em .5em .1em .1em;
   @include mobile {
     display : none;
   }
+  @include landscape {
+    display : none;
+  }
 }
 
 nav {
@@ -257,6 +260,9 @@ nav {
     margin-top: 0em;
     display: block;
     font-size: 1em;
+  }
+  @include landscape {
+    margin: 0;
   }
 
   a {

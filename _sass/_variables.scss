@@ -25,3 +25,10 @@ $georgia: Georgia, serif;
     @content;
   }
 }
+
+// Mobile breakpoints
+@mixin landscape {
+  @media screen and (max-height: 376px) {
+    @content;
+  }
+}
