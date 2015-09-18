@@ -16,9 +16,10 @@ Your browser does not support the HTML5 canvas tag.
 ```
 
 And here is the result on the html page : 
-![canvas_example1](/images/posts/2015-9-18/1.PNG "canvas example 1") Easy...
-Now we only have to connect to this <canvas> element from our js code and draw what we want inside. This will be done in js by using the code below :
 
+![canvas_example1](/images/posts/2015-9-18/1.PNG "canvas example 1") 
+Easy...
+Now we only have to connect to this canvas element from our js code and draw what we want inside. This will be done in js by using the code below :
 ```javascript
 var canvas = document.getElementById( 'canvas');
 ```
@@ -40,7 +41,7 @@ ctx_ex1.fillText("Hello World", canvas_ex1.width/4, canvas_ex1.height/2);
 </script>
 ```
 
-Just remember the script must be placed after the </canvas> closure tag.
+Just remember the script must be placed after the canvas closure tag.
 If not, the getElementById will return "null" as the component has not been loaded.
 You can also place the Javascript inside the <head> section and use the onload function. Now we can start looking at :
 
