@@ -20,7 +20,6 @@ And here is the result on the html page :
 ![canvas_example1](/images/posts/2015-9-18/1.PNG "canvas example 1")
 
 Easy !
-
 Now we only have to connect to this <canvas> element from our js code and draw what we want inside. This will be done in js by using the code below :
 
 ```javascript
