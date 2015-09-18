@@ -19,9 +19,6 @@ And here is the result on the html page :
 
 ![canvas_example1](/images/posts/2015-9-18/1.PNG "canvas example 1")
 
-<canvas id="canvas" width="20" height="10" style="border:1px solid #000000;">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
 Easy !
 
 Now we only have to connect to this <canvas> element from our js code and draw what we want inside. This will be done in js by using the code below :
