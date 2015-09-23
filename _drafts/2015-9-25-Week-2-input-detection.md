@@ -4,6 +4,7 @@ title: Week 2, Input detection
 ---
 
 ![excerpt picture](/images/posts/2015-9-25/excerpt.png "excerpt picture" =100x)
+<img src="/images/posts/2015-9-25/excerpt.png" alt="excerpt picture" style="width:200px;height:148px;">
 
 Input detection is actualy the interface between the player and the game. It's one of the main difference between a fun game and a unplayable game... 
 
@@ -17,7 +18,7 @@ worldRenderer.getCanvas().addEventListener("touchend", inputManager.handleEnd, f
 worldRenderer.getCanvas().addEventListener("touchleave", inputManager.handleEnd, false);   
 ```
 
-We add these listeners to the ```javascript document ``` for keyboard inputs and to the ```html <canvas> ``` for touch events.
+We add these listeners to the `document` for keyboard inputs and to the `<canvas>` for touch events.
 
 Then the inputManager will include these functions to track on which key did the player press, or where did he touch the canvas.
 
