@@ -3,8 +3,10 @@ layout: post
 title: Week 2, Input detection
 ---
 
+<!---
 ![excerpt picture](/images/posts/2015-9-25/excerpt.png "excerpt picture" =100x)
-<img src="/images/posts/2015-9-25/excerpt.png" alt="excerpt picture" style="width:200px;height:148px;">
+-->
+<img src="/images/posts/2015-9-25/excerpt.png" alt="excerpt picture" style="width:100px;height:74px;">
 
 Input detection is actualy the interface between the player and the game. It's one of the main difference between a fun game and a unplayable game... 
 
@@ -45,7 +47,8 @@ For example, the player doesn't want to go up the web page when he presses up, h
 
 ## <a name="screen_touch"></a>Touch input
 
-The touch input is more tricky as 
+The touch input is more tricky as the players has multiple fingers (hopefully) and he can press together different areas, with different fingers.
+
 
 
 
