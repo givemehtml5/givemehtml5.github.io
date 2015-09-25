@@ -5,7 +5,7 @@ title: Week 1, The html part of the game
 
 ![excerpt picture](/images/posts/2015-9-18/excerpt.png "excerpt picture")
 
-First things first, the main component we are going to use to integrate the game is the canvas element. This element is used to draw graphics on an html page.
+First things first, the main component we are going to use to integrate the game is the `<canvas>` element. This element is used to draw graphics on an html page.
 
 Below is the code used to draw an empty canvas element :
 
@@ -67,7 +67,7 @@ And that works fine !!
 
 ![canvas_example4](/images/posts/2015-9-18/4.PNG "canvas example 4")
 
-We have now set-up the canvas element on the web page and the main loop of our game.
+We have now set-up the canvas element on the web page and the main loop of our [html5 game](http://givemehtml5.github.io).
 Next step will be to detect the player inputs...
 
 
