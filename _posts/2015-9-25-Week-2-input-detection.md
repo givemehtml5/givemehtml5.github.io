@@ -3,10 +3,8 @@ layout: post
 title: Week 2, Input detection
 ---
 
-<!---
-![excerpt picture](/images/posts/2015-9-25/excerpt.png "excerpt picture" =100x)
--->
-<img src="/images/posts/2015-9-25/excerpt.png" alt="excerpt picture" style="width:100px;height:74px;">
+
+<img src="/images/posts/2015-9-25/excerpt.png" alt="excerpt picture" style="width:150px;height:111px;">
 
 Input detection is obviously the main half of the interface between the player and the game, the other half is the game interface itself which send the inputs from the game to the player.
 
@@ -47,7 +45,7 @@ if(39===keyCode) { e.preventDefault(); input |= 1;} //0001 RIGHT
 As we want to keep only one value for all input states, the idea is to play with bit operator & and | to update the input value. 
 Then we manage a unique variable instead of getting back an array of boolean. That also means only one value to send/read during online game.
 
-the preventDefault function is there to prevent the key to fire the standard function associated with the key. 
+The preventDefault function is there to prevent the key to fire the standard function associated with the key. 
 The player doesn't want to go up the web page when he presses up, what he wants is just .. Jumping !
 
 
