@@ -4,7 +4,9 @@ layout: default
 
 <article class="post">
   <h1>{{ page.title }}</h1>
-
+	
+	<a id="scroll-to-top">back to top</a>
+	 
   <div class="entry">
     {{ content }}
   </div>
@@ -15,3 +17,35 @@ layout: default
 
   {% include disqus.html %}
 </article>
+
+<script type="text/javascript">
+
+	 	var scrollTotop = document.getElementById('scroll-to-top');
+			scrollTotop.onclick = function () {
+				scrollTo(document.documentElement, 0, 50);
+			}
+
+				function scrollTo(element, to, duration) {
+					if (duration < 0) return;
+					var difference = to - element.scrollTop;
+					var perTick = difference / duration * 2;
+
+				setTimeout(function() {
+					element.scrollTop = element.scrollTop + perTick;
+					scrollTo(element, to, duration - 2);
+				}, 10);
+			}
+
+		window.onscroll = function(ev) {
+			/*if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+				alert("you're at the bottom of the page");
+			}*/
+		   if (window.scrollY >= 400) {
+				scrollTotop.style.display="block";
+			}
+			else {
+				scrollTotop.style.display="none";
+			}
+		};
+
+	</script>
