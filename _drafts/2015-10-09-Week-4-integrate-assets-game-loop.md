@@ -4,7 +4,7 @@ title: Week 4, Integrate assets into the html5 game loop
 ---
 
 
-<img src="/images/posts/2015-10-08/excerpt.png" alt="excerpt picture" style="width:150px;height:111px;">
+<img src="/images/posts/2015-10-09/excerpt.png" alt="excerpt picture" style="width:150px;height:111px;">
 
 This week, we are going to start working with the assets. This part will take me more than 1 week, and the assets will continue to change until final release.
 
@@ -60,7 +60,7 @@ the `AssetLoaded` function only checks if the number of loaded contents fits the
 We already talked about the main loop in a [previous post: Week 1, The html part of the game](http://givemehtml5.github.io/Day-0-A-long-journey/#game_engine).
 We updated it as below to include assets management :
 
-<img src="/images/posts/2015-10-08/1.png" alt="main loop 1" style="width:150px;height:auto;">
+<img src="/images/posts/2015-10-09/1.png" alt="main loop 1" style="width:150px;height:auto;">
 
 There are four main modules so far (although the send/receive module does not exists yet).
 The first one is done, you can read this previous [post about input detection](http://givemehtml5.github.io/Week-2-input-detection/).
