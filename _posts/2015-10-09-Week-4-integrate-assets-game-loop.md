@@ -16,7 +16,7 @@ We will first improve a bit the html5 game loop to integrate the modules needed,
 
 you can see below the main loop description a bit updated to integrate both init and loop phases.
 
-<img src="/images/posts/2015-10-09/1.png" alt="main loop 1" style="width:50%;height:auto;">
+<img src="/images/posts/2015-10-09/1.png" alt="main loop 1" style="width:85%;height:auto;">
 
 The background stays a specific class as the others entities will. There will be a level class, a hero class and an enemy class.
 There is a question which can be asked about inheritance.
@@ -40,7 +40,7 @@ You can see that the frame size look like 800,600 which is the baseline resoluti
 
 that's why we have to get the ratio value between 800,600 and the current screen resolution.
 
-<img src="/images/posts/2015-10-09/2.png" alt="main loop 1" style="width:50%;height:auto;">
+<img src="/images/posts/2015-10-09/2.png" alt="main loop 1" style="width:85%;height:auto;">
 
 Everything is integrated in javascript Draw API below :
 
