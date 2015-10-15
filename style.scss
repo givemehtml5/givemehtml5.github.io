@@ -180,6 +180,52 @@ border: 1px solid black;
 
 }
 
+
+#menu-wrapper {
+		top: 0px;
+		left: 0px;
+		background: black;
+		width: 100%;
+		height: auto;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+}
+
+
+#menu {
+		top: 50%;
+		left: 0px;
+		background: black;
+		width: 100%;
+		height: auto;
+		position: absolute;
+}
+
+
+.button {
+	  display: block;
+	  width: 150px;
+	  margin: 0 auto;
+	  height: 30px;
+	  line-height: 30px;
+	  text-align:center;
+	  border: 1px solid #002E5C;
+	  color: white;
+	  font-weight: bold;
+	  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+	  background-color: #0066FF;
+	  background-image: -webkit-linear-gradient(bottom, #0066FF 0%, #E6F0FF 100%);
+	  background-image:         linear-gradient(to bottom, #0066FF 0%, #E6F0FF 100%);
+	  border-radius: 5px;
+}
+.button:hover {
+  background-color: #E6F0FF;
+  background-image: -webkit-linear-gradient(bottom, #E6F0FF 0%, #0066FF 100%);
+  background-image:         linear-gradient(to bottom, #E6F0FF 0%, #0066FF 100%);
+}
+
+
 /*********************/
 /* LAYOUT / SECTIONS */
 /*********************/
