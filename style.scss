@@ -335,6 +335,15 @@ nav {
       margin: 0 0.7em;
       color: $blue;
     }
+	
+	@include tinymobile {
+      margin: 0 0.7em;
+      color: $blue;
+	  font-size: 0.7em;
+    }
+	
+	
+	
   }
   
   

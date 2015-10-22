@@ -26,6 +26,13 @@ $georgia: Georgia, serif;
   }
 }
 
+// tinyMobile breakpoints
+@mixin tinymobile {
+  @media screen and (max-width: 205px) {
+    @content;
+  }
+}
+
 // Mobile breakpoints
 @mixin landscape {
   @media screen and (max-height: 376px) {
