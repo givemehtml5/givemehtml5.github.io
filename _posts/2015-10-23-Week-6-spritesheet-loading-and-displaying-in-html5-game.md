@@ -8,6 +8,7 @@ title: Week 6, Load and display sprites in html5 games
 
 This week, I worked added the hero animation on the [html5 game](http://givemehtml5.github.io).
 I followed five main steps to do that :
+
 1. Create a spritesheet with associated Json sprite description
 2. Preload both spritesheet image and Json file
 3. Create player animation relative to certain parts of the spritesheet
