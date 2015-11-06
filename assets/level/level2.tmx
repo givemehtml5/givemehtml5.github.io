@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="48" tilewidth="32" tileheight="32" backgroundcolor="#000000">
+ <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32">
+  <image source="tiles.png" width="160" height="32"/>
+ </tileset>
+ <layer name="background" width="200" height="48">
+  <data encoding="base64" compression="zlib">
+   eJzt2EEKwjAUAFHr/Q8tggupjriQ5qvvQXZdpZmU/u0EPLPdFvBIH9D0AU0f0PQBTR/Q9AFNH9D0AU0f0PQBTR/Q9AFNH9D0AU0f0PQBTR/Q9AFNH9D0AU0f0Cb2cd4tWGVSH9WEVlhhO83p453zrw+ONK2PTzwDn6IPaPqANq0P/x9MMqmPq/1c974Z8yuONq2PZ8x2WeUb+oBV9AFNH9D0AU0f0PQBr+kDmj6g6QOaPqDpA5o+/s/2A+so+jjG6vP0a7N8e7aO/eXe9PfnjmWl1d9755XJLtUqAXU=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object name="player" type="player" x="96" y="480" width="32" height="32"/>
+  <object name="monster" type="monster" x="1152" y="872" width="32" height="32">
+   <properties>
+    <property name="maxdx" value="10"/>
+    <property name="right" value="true"/>
+   </properties>
+  </object>
+  <object name="treasure" type="treasure" x="1244" y="876" width="32" height="32"/>
+ </objectgroup>
+</map>
