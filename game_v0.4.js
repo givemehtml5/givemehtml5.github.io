@@ -1,0 +1,73 @@
+function CustomSound(e,t,n){var i=e,o=null,n=n+"?nocache="+Math.random(),r=!1,a=new XMLHttpRequest
+a.onload=function(){null!=a.response&&(Soundcontext.decodeAudioData(a.response,function(e){DebugMode&&console.log("buffer: "+e),o=e},null),i())}
+var s=!0
+this.setloop=function(e){r=e},this.request=function(){a.open("GET",n,!0),a.responseType="arraybuffer",a.setRequestHeader("Cache-Control","no-cache"),a.setRequestHeader("X-Requested-With","XMLHttpRequest"),a.send(null)},this.play=function(){if(!0===s&&null!=o){var e=Soundcontext.createBufferSource()
+e.loop=r,e.buffer=o,e.connect(Soundcontext.destination),s=!1,e.start(0),e.onended=function(){s=!0,console.log("Your audio has finished playing")}}}}function Camera(e,t,n,i,o,r){var a={NONE:"none",HORIZONTAL:"horizontal",VERTICAL:"vertical",BOTH:"both"},e=e||0,t=t||0,s=0,d=0,h=n,u=i,c=a.BOTH,g=null,l={x:e,y:t,width:h,height:u},f={x:0,y:0,width:o,height:r}
+this.setViewport=function(e,t,n,i){h=e,l.width=h,u=t,l.height=u,s=e/2,d=t/2,f.width=n,f.height=i},this.follow=function(e){g=e,s=h/2,d=u/2},this.getX=function(){return e},this.getY=function(){return t},this.getPos=function(){return{x:e,y:t}},this.getDebug=function(){return{xdead:s,w:f.width}},this.update=function(){null!=g&&((c==a.HORIZONTAL||c==a.BOTH)&&(e=g.getX()-(h-s)/ScreenRatio),(c==a.VERTICAL||c==a.BOTH)&&(t=-g.getY()-(u-d)/ScreenRatio)),l.x=e,l.y=t,l.x+l.width/ScreenRatio>f.x+f.width/ScreenRatio&&(e=f.x+f.width/ScreenRatio-l.width/ScreenRatio),(l.x<=f.x||l.width>f.width)&&(e=f.x),l.y+l.height/ScreenRatio>f.y+f.height/ScreenRatio&&(t=f.height/ScreenRatio-u/ScreenRatio),(l.y<=f.y||l.height>f.height)&&(t=f.y)}}function CustomSprite(e,t,n){var i=e,o=new Image
+this.getSprite=function(){return o}
+var n=n+"?nocache="+Math.random(),r=null
+this.getJson=function(){return r}
+var a=new XMLHttpRequest
+a.onload=function(){null!=a.response&&(r=a.response,i())},this.request=function(){a.open("GET",n,!0),a.responseType="json",a.setRequestHeader("Cache-Control","no-cache"),a.setRequestHeader("X-Requested-With","XMLHttpRequest"),a.send(null)}}function Animation(){var e={},t=0,n=0,i=0,o=0
+this.setFrame=function(n,i,r){e[i]=n,o=r,t++},this.getFrame=function(){return e[i]},this.update=function(e){if(!(0>=o))for(n+=e;n>=o;)n-=o,i++,i>=t&&(i=0)}}function Player(e){for(var t=e,n=t.getSprite(),i=t.getJson(),o={},r=0;r<i.length;r++){var a=i[r]
+o[a.name]=a}var s=new Animation
+s.setFrame(o["idle-left"],0,.1)
+var d=new Animation
+d.setFrame(o["idle-right"],0,.1)
+var h=new Animation
+h.setFrame(o["up-left"],0,.1)
+var u=new Animation
+u.setFrame(o["down-left"],0,.1)
+var c=new Animation
+c.setFrame(o["up-right"],0,.1)
+var g=new Animation
+g.setFrame(o["down-right"],0,.1)
+var l=new Animation,f=new Animation
+for(r=0;5>r;r++)l.setFrame(o["left-anim-0"+(r+2)],r,.1),f.setFrame(o["right-anim-0"+(r+2)],r,.1)
+var m,p=null,w=s.getFrame().width,x=s.getFrame().height,R={IDLE:1,WALKING:2,JUMPING:3,DYING:4},y=R.IDLE,v=!1,b=0,S=0,A=0,M=10,L=10,G=.5,H=.1,E=!1,I=!1,T=!1,P=!1
+this.getX=function(){return m.x},this.setX=function(e){m.x=e},this.getY=function(){return m.y},this.setY=function(e){m.y=e},this.getWidth=function(){return w},this.getHeight=function(){return x},this.isJumping=function(){return R.JUMPING==y},this.isPerformingAction=function(){return P},this.isLeft=function(){return E},this.isRight=function(){return I},this.isFacingLeft=function(){return v},this.getState=function(){return y},this.getAccelerationX=function(){return S},this.getAccelerationY=function(){return A},this.getSpeedX=function(){return m.dx},this.getSpeedY=function(){return m.dy},this.setEntity=function(e){m=e},this.update=function(e,t){E=!1,I=!1,T=!1,P=!1,8===(8&e)&&(T=!0,b++,R.JUMPING!=y?(jumpingPressed=!0,b=0,y=R.JUMPING,m.dy=L,m.grounded=!1):jumpingPressed&&b>=M?jumpingPressed=!1:jumpingPressed&&(m.dy=L)),0===(8&e)&&(jumpingPressed=!1),4===(4&e)&&(P=!0),2===(2&e)?(E=!0,v=!0,R.JUMPING!=y&&(y=R.WALKING),S>0&&(m.dx=0),S=-m.accel):1===(1&e)?(I=!0,v=!1,R.JUMPING!=y&&(y=R.WALKING),0>S&&(m.dx=0),S=m.accel):(R.JUMPING!=y&&(y=R.IDLE),S=0),!0===m.grounded&&R.JUMPING===y&&(y=R.IDLE),A=m.gravity,S*=t,A*=t,m.dx+=S,m.dy+=A,0===S?(m.dx*=G,m.dx>0&&m.dx<H&&(m.dx=0),m.dx<0&&m.dx>-H&&(m.dx=0)):(m.dx>m.maxdx&&(m.dx=m.maxdx),m.dx<-m.maxdx&&(m.dx=-m.maxdx)),p=v?s:d,R.WALKING===y?p=v?l:f:R.JUMPING===y&&(p=m.dy>0?v?h:c:v?u:g),p.update(t)},this.render=function(e,t){if(null!==p){var i=RefGameHeight-(m.y+m.height)
+e.drawImage(n,p.getFrame().x,p.getFrame().y,w,x,(m.x-t.getPos().x)*ScreenRatio,(i-t.getPos().y)*ScreenRatio,w*ScreenRatio,x*ScreenRatio)}}}function Level(e){function t(e){var t={}
+return t.monster="monster"==e.type,t.player="player"==e.type,t.treasure="treasure"==e.type,t.width=t.player?i.getWidth():d,t.height=t.player?i.getHeight():d,t.x=e.x,t.y=e.y-t.height,t.dx=0,t.dy=0,t.gravity=METER*(e.properties.gravity||GRAVITY),t.maxdx=METER*(e.properties.maxdx||MAXDX),t.maxdy=METER*(e.properties.maxdy||MAXDY),t.impulse=METER*(e.properties.impulse||IMPULSE),t.accel=t.maxdx/(e.properties.accel||ACCEL),t.friction=t.maxdx/(e.properties.friction||FRICTION),t.grounded=!1,t.left=e.properties.left,t.right=e.properties.right,t.start={x:t.x,y:t.y},t.bounds={x:t.x,y:t.y,width:t.width,height:t.height},t.killed=t.collected=0,t}var n=e,i=new Player(n.imgs.hero),o=n.imgs.lvl,r=o.getSprite(),a=o.getJson(),s={tw:a.width,th:a.height},d=20
+METER=d,GRAVITY=-9.8/3,MAXDX=1,MAXDY=60,ACCEL=1,FRICTION=1/6,IMPULSE=1500
+var h=function(e){return e*d},u=function(e){return Math.floor(e/d)},c=function(e,t){return m[e+t*s.tw]},g={},l=[],f=[],m=[],p=[],w=[]
+this.getHero=function(){return i},this.getWidth=function(){return s.tw*d},this.getHeight=function(){return s.th*d}
+var x,R,y,v=a.layers[0].data,b=a.layers[1].objects
+for(x=0;x<b.length;x++)switch(R=b[x],y=t(R),R.type){case"player":g=y,i.setEntity(y),p.push(y)
+break
+case"monster":l.push(y),p.push(y)
+break
+case"treasure":f.push(y),w.push(y)}m=v
+for(var S=0,A=s.th-1,M=0;M<v.length;M++){if(0!=v[M]){var L={}
+L.renderdata=v[M],L.bounds={x:h(S),y:h(A),width:d,height:d},w.push(L)}S++,S>=s.tw&&(S=0,A--)}var G=new CollisionManager(w,p)
+this.update=function(e,t){i.update(e,t),G.checkCollisionandUpdatePosition()},this.render=function(e,t){var n,o,h
+for(o=0;o<s.th;o++)for(n=0;n<s.tw;n++)h=c(n,o),h&&e.drawImage(r,a.tilewidth*(h-1),0,a.tilewidth,a.tileheight,(n*d-t.getPos().x)*ScreenRatio,(RefGameHeight+(o-s.th)*d-t.getPos().y)*ScreenRatio,d*ScreenRatio,d*ScreenRatio)
+i.render(e,t)}}function Background(e,t,n,i,o,r,a){var s=t,d=n,h=i,u=o,c=r,g=a,l=0,f=0,m=parseFloat((width/(u*ScreenRatio)).toFixed(1))+2,p=1
+this.getThis=function(){return this},this.update=function(e){m=parseFloat((width/(u*ScreenRatio)).toFixed(1))+2,l=(-e.getPos().x*g).toFixed(1)%(u*ScreenRatio),f=(RefGameHeight-e.getPos().y)*ScreenRatio},this.render=function(e){var t=l>0?-1:0,n=f>0?-1:0
+for(row=0;row<p;row++)for(col=0;col<m;col++)e.drawImage(s,d,h,u,c,l+(col+t)*u*ScreenRatio,f+(n+row)*c*ScreenRatio,u*ScreenRatio,c*ScreenRatio)}}function InputManager(){function e(e,t){return e>0&&e<width&&t>height-gameheight&&t<height-gameheight/2?!0:!1}function t(e,t){return e>.25*width&&e<.75*width&&t>height-gameheight/2&&t<height?!0:!1}function n(e,t){return e>0&&e<.25*width&&t>height-gameheight/2&&t<height?!0:!1}function i(e,t){return e>.75*width&&e<width&&t>height-gameheight/2&&t<height?!0:!1}var o=0,r=-1,a=-1,s=-1,d=-1
+this.GetInput=function(){return o},this.handleKeyDown=function(e){var t=e.keyCode?e.keyCode:e.charCode
+38===t&&(e.preventDefault(),o|=8),32===t&&(e.preventDefault(),o|=4),37===t&&(e.preventDefault(),o|=2),39===t&&(e.preventDefault(),o|=1)},this.handleKeyUp=function(e){var t=e.keyCode?e.keyCode:e.charCode
+38===t&&(e.preventDefault(),o&=7),32===t&&(e.preventDefault(),o&=11),37===t&&(e.preventDefault(),o&=13),39===t&&(e.preventDefault(),o&=14)},this.handleStart=function(h){h.preventDefault(),DebugMode&&console.log("input : "+width+"-"+h.changedTouches[0].clientX+"-"+h.changedTouches[0].clientY)
+var u=h.changedTouches[0].clientX-offsetX,c=h.changedTouches[0].clientY-offsetY
+DebugMode&&console.log("input : "+width+"-"+u+"-"+c),e(u,c)&&(o|=8,r=h.changedTouches[0].identifier),t(u,c)&&(o|=4,d=h.changedTouches[0].identifier),n(u,c)&&(o|=2,a=h.changedTouches[0].identifier),i(u,c)&&(o|=1,s=h.changedTouches[0].identifier)},this.handleEnd=function(e){e.preventDefault(),r===e.changedTouches[0].identifier&&(o&=7),d===e.changedTouches[0].identifier&&(o&=11),a===e.changedTouches[0].identifier&&(o&=13),s===e.changedTouches[0].identifier&&(o&=14)}}function CollisionManager(e,t){function n(e,t){return!(e.x>t.x+t.width||e.x+e.width<t.x||e.y+e.height<t.y||e.y>t.y+t.height)}function i(){for(a=[],index=0;index<r.length;++index)a[index]=r[index]}var o=t,r=e,a=[],s=[]
+this.getdebugTile=function(){return s},this.checkCollisionandUpdatePosition=function(){s=[]
+for(var e=0;e<o.length;e++){o[e].bounds.x=o[e].x,o[e].bounds.y=o[e].y,collisionRect={x:o[e].bounds.x,y:o[e].bounds.y,width:o[e].bounds.width,height:o[e].bounds.height}
+var t,r,d=o[e].bounds.y,h=o[e].bounds.y+o[e].bounds.height
+t=r=Math.floor(o[e].dx<0?o[e].bounds.x+o[e].dx:o[e].bounds.x+o[e].bounds.width+o[e].dx),i(o[e],t,d,r,h),collisionRect.x+=o[e].dx,s.push(collisionRect)
+var u=null
+for(index=0;index<a.length;++index)if(u=a[index],null!==u&&n(collisionRect,u.bounds)===!0){s.push(u.bounds),o[e].dx=0
+break}for(collisionRect.x=o[e].bounds.x,t=o[e].bounds.x,r=o[e].bounds.x+o[e].bounds.width,d=h=Math.floor(o[e].dy<0?o[e].bounds.y+o[e].dy:o[e].bounds.y+o[e].bounds.height+o[e].dy),i(o[e],t,d,r,h),collisionRect.y+=o[e].dy,index=0;index<a.length;++index)if(u=a[index],null!==u&&n(collisionRect,u.bounds)===!0){o[e].dy<0&&(o[e].grounded=!0),o[e].dy=0,s.push(u.bounds)
+break}collisionRect.y=o[e].bounds.y,o[e].x+=o[e].dx,o[e].y+=o[e].dy}}}function AssetManager(){function e(e,t,n,i){DebugMode&&console.log("PreLoad IMAGE : "+e),r[e]=new Image,r[e].name=e,r[e].frameWidth=n,r[e].frameHeight=i,r[e].onload=o.AssetLoaded,r[e].src=t}function t(e,t,n){DebugMode&&console.log("PreLoad IMAGE : "+e),r[e]=new CustomSprite(o.AssetLoaded,e,n),r[e].getSprite().onload=o.AssetLoaded,r[e].getSprite().src=t,r[e].request()}function n(e,t,n){DebugMode&&console.log("PreLoad SOUND : "+e),a[e]=new CustomSound(o.AssetLoaded,e,t,n),!0===soundEnabled&&a[e].request()}var i=0,o=this,r={}
+this.imgs=r
+var a={}
+this.sounds=a
+var s=0,d=0,h=0,u=0
+this.PreLoad=function(o){i=o,DebugMode&&console.log("enter PreLoad"),s=2,numSprite=1,d=2,h=!0===soundEnabled?s+2*numSprite+d:s+2*numSprite,u=0,e("bgs","assets/imgs/bgs.png",RefGameWidth,3*RefGameHeight),e("ship","assets/imgs/ship.png",0,0),t("hero","assets/imgs/spritesheet.png","assets/imgs/spritesheet.json"),t("lvl","assets/level/tiles.png","assets/level/level2.json"),n("laser","./assets/sounds/laser.wav",.5),n("background","./assets/sounds/background.mp3",.1),DebugMode&&console.log("PreLoad in progress...")},o.AssetLoaded=function(){u++,u===h&&(DebugMode&&console.log("AssetsLoaded"),i.start())}}function WorldRenderer(e){var t=e,n=new Level(t),o=new Camera(0,0,width,gameheight,n.getWidth(),n.getHeight())
+o.follow(n.getHero(),width/2,gameheight/2)
+var r=[]
+r[0]=new Background(o,t.imgs.bgs,0,0,RefGameWidth,RefGameHeight,0),r[1]=new Background(o,t.imgs.bgs,0,RefGameHeight,RefGameWidth,RefGameHeight,.2*ScreenRatio),r[2]=new Background(o,t.imgs.bgs,0,2*RefGameHeight,RefGameWidth,RefGameHeight,.5*ScreenRatio),this.getCam=function(){return o},this.getLevel=function(){return n},this.update=function(e,t){for(n.update(e,t),o.update(),i=0;i<r.length;i++)r[i].update(o)},this.render=function(){for(ctx.clearRect(0,0,width,height),i=0;i<r.length;i++)r[i].render(ctx)
+n.render(ctx,o),ctx.fillStyle="white",ctx.font="15px Arial",ctx.fillText("Press or touch",.1*width,RefGameHeight*ScreenRatio*.1),1==n.getHero().isJumping()&&ctx.fillText("JUMP",.45*width,RefGameHeight*ScreenRatio*.25),!0===n.getHero().isPerformingAction()&&ctx.fillText("ACTION",.45*width,RefGameHeight*ScreenRatio*.75),!0===n.getHero().isLeft()&&ctx.fillText("LEFT",.1*width,RefGameHeight*ScreenRatio*.75),!0===n.getHero().isRight()&&ctx.fillText("RIGHT",.8*width,RefGameHeight*ScreenRatio*.75),!0===n.getHero().isPerformingAction()&&t.sounds.laser.play()}}function Game(){function e(e){e.style.display="none"}function t(e){e.style.display="block"}function n(){e(canvas),t(r)}var i,o=this,r=document.getElementById("menu-wrapper"),a=!1
+canvas=document.getElementById("canvas"),ctx=canvas.getContext("2d"),width=canvas.width,height=canvas.height,gameheight=canvas.height,gameoffset=0,RefGameHeight=600,RefGameWidth=800,offsetX=0,offsetY=0,ScreenRatio=1,soundEnabled=!1
+try{window.AudioContext=window.AudioContext||window.webkitAudioContext,Soundcontext=new AudioContext,soundEnabled=!0}catch(s){soundEnabled=!1,alert("Web Audio API is not supported in this browser")}var d,h=60,u=1/h,c=new AssetManager,g=new InputManager;(new Date).getTime()
+o.init=function(){DebugMode&&console.log("enter init"),o.resize(),c.PreLoad(o)},o.start=function(){DebugMode&&console.log("enter start"),d=new WorldRenderer(c),n(),DebugMode&&console.log("enter animate"),o.animate()},o.animate=function(){window.requestAnimFrame(o.animate),!0===a&&(i=g.GetInput(),d.update(i,u),d.render())},o.resize=function(){for(DebugMode&&console.log("enter resize"),offsetX=0,offsetY=0,element=canvas;element;)offsetX+=element.offsetLeft,offsetY+=element.offsetTop,element=element.offsetParent
+for(ctx.canvas.width=ctx.canvas.offsetWidth,ctx.canvas.height=ctx.canvas.offsetHeight,width=ctx.canvas.width,height=ctx.canvas.height,gameheight=ctx.canvas.height,width<height&&(gameheight=height/2,gameoffset=0),ratio=.1;ratio<2;ratio+=.1)gameheight>=RefGameHeight*ratio&&(ScreenRatio=ratio.toFixed(2))
+gameheight!=height&&(gameheight=height-RefGameHeight*ScreenRatio),null!=d&&d.getCam().setViewport(width,RefGameHeight,ScreenRatio*d.getLevel().getWidth(),ScreenRatio*d.getLevel().getHeight())},document.querySelectorAll(".play")[0].addEventListener("click",function(){e(r),t(canvas),o.resize(),c.sounds.background.setloop(!0),c.sounds.background.play(),a=!0}),window.addEventListener("resize",o.resize,!1),window.addEventListener("orientationchange",o.resize,!1),document.addEventListener("keydown",g.handleKeyDown,!1),document.addEventListener("keyup",g.handleKeyUp,!1),canvas.addEventListener("touchstart",g.handleStart,!1),canvas.addEventListener("touchend",g.handleEnd,!1),canvas.addEventListener("touchleave",g.handleEnd,!1),o.init()}DebugMode=!1,window.requestAnimFrame=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(e){window.setTimeout(e,1e3/60)}}(),game=new Game
