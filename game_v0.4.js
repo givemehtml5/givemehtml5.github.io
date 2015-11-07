@@ -1,14 +1,14 @@
-function CustomSound(e,t,n){var i=e,o=null,n=n+"?nocache="+Math.random(),r=!1,a=new XMLHttpRequest
-a.onload=function(){null!=a.response&&(Soundcontext.decodeAudioData(a.response,function(e){DebugMode&&console.log("buffer: "+e),o=e},null),i())}
-var s=!0
-this.setloop=function(e){r=e},this.request=function(){a.open("GET",n,!0),a.responseType="arraybuffer",a.setRequestHeader("Cache-Control","no-cache"),a.setRequestHeader("X-Requested-With","XMLHttpRequest"),a.send(null)},this.play=function(){if(!0===s&&null!=o){var e=Soundcontext.createBufferSource()
-e.loop=r,e.buffer=o,e.connect(Soundcontext.destination),s=!1,e.start(0),e.onended=function(){s=!0,console.log("Your audio has finished playing")}}}}function Camera(e,t,n,i,o,r){var a={NONE:"none",HORIZONTAL:"horizontal",VERTICAL:"vertical",BOTH:"both"},e=e||0,t=t||0,s=0,d=0,h=n,u=i,c=a.BOTH,g=null,l={x:e,y:t,width:h,height:u},f={x:0,y:0,width:o,height:r}
+function CustomSound(e,t,n){var i,o=e,r=null,n=n+"?nocache="+Math.random(),a=!1
+try{i=new XMLHttpRequest}catch(s){try{i=new ActiveXObject("Msxml2.XMLHTTP")}catch(s){try{i=new ActiveXObject("Microsoft.XMLHTTP")}catch(s){alert("Your browser cannot support ajax!")}}}i.onload=function(){null!=i.response&&(Soundcontext.decodeAudioData(i.response,function(e){DebugMode&&console.log("buffer: "+e),r=e},null),o())}
+var d=!0
+this.setloop=function(e){a=e},this.request=function(){i.open("GET",n,!0),i.responseType="arraybuffer",i.setRequestHeader("Cache-Control","no-cache"),i.setRequestHeader("X-Requested-With","XMLHttpRequest"),i.send(null)},this.play=function(){if(!0===d&&null!=r){var e=Soundcontext.createBufferSource()
+e.loop=a,e.buffer=r,e.connect(Soundcontext.destination),d=!1,e.start(0),e.onended=function(){d=!0,console.log("Your audio has finished playing")}}}}function Camera(e,t,n,i,o,r){var a={NONE:"none",HORIZONTAL:"horizontal",VERTICAL:"vertical",BOTH:"both"},e=e||0,t=t||0,s=0,d=0,h=n,u=i,c=a.BOTH,g=null,l={x:e,y:t,width:h,height:u},f={x:0,y:0,width:o,height:r}
 this.setViewport=function(e,t,n,i){h=e,l.width=h,u=t,l.height=u,s=e/2,d=t/2,f.width=n,f.height=i},this.follow=function(e){g=e,s=h/2,d=u/2},this.getX=function(){return e},this.getY=function(){return t},this.getPos=function(){return{x:e,y:t}},this.getDebug=function(){return{xdead:s,w:f.width}},this.update=function(){null!=g&&((c==a.HORIZONTAL||c==a.BOTH)&&(e=g.getX()-(h-s)/ScreenRatio),(c==a.VERTICAL||c==a.BOTH)&&(t=-g.getY()-(u-d)/ScreenRatio)),l.x=e,l.y=t,l.x+l.width/ScreenRatio>f.x+f.width/ScreenRatio&&(e=f.x+f.width/ScreenRatio-l.width/ScreenRatio),(l.x<=f.x||l.width>f.width)&&(e=f.x),l.y+l.height/ScreenRatio>f.y+f.height/ScreenRatio&&(t=f.height/ScreenRatio-u/ScreenRatio),(l.y<=f.y||l.height>f.height)&&(t=f.y)}}function CustomSprite(e,t,n){var i=e,o=new Image
 this.getSprite=function(){return o}
 var n=n+"?nocache="+Math.random(),r=null
 this.getJson=function(){return r}
-var a=new XMLHttpRequest
-a.onload=function(){null!=a.response&&(r=a.response,i())},this.request=function(){a.open("GET",n,!0),a.responseType="json",a.setRequestHeader("Cache-Control","no-cache"),a.setRequestHeader("X-Requested-With","XMLHttpRequest"),a.send(null)}}function Animation(){var e={},t=0,n=0,i=0,o=0
+var a
+try{a=new XMLHttpRequest}catch(s){try{a=new ActiveXObject("Msxml2.XMLHTTP")}catch(s){try{a=new ActiveXObject("Microsoft.XMLHTTP")}catch(s){alert("Your browser cannot support ajax!")}}}a.onload=function(){null!=a.response&&(r=a.response,i())},this.request=function(){a.open("GET",n,!0),a.responseType="json",a.setRequestHeader("Cache-Control","no-cache"),a.setRequestHeader("X-Requested-With","XMLHttpRequest"),a.send(null)}}function Animation(){var e={},t=0,n=0,i=0,o=0
 this.setFrame=function(n,i,r){e[i]=n,o=r,t++},this.getFrame=function(){return e[i]},this.update=function(e){if(!(0>=o))for(n+=e;n>=o;)n-=o,i++,i>=t&&(i=0)}}function Player(e){for(var t=e,n=t.getSprite(),i=t.getJson(),o={},r=0;r<i.length;r++){var a=i[r]
 o[a.name]=a}var s=new Animation
 s.setFrame(o["idle-left"],0,.1)
@@ -24,22 +24,22 @@ var g=new Animation
 g.setFrame(o["down-right"],0,.1)
 var l=new Animation,f=new Animation
 for(r=0;5>r;r++)l.setFrame(o["left-anim-0"+(r+2)],r,.1),f.setFrame(o["right-anim-0"+(r+2)],r,.1)
-var m,p=null,w=s.getFrame().width,x=s.getFrame().height,R={IDLE:1,WALKING:2,JUMPING:3,DYING:4},y=R.IDLE,v=!1,b=0,S=0,A=0,M=10,L=10,G=.5,H=.1,E=!1,I=!1,T=!1,P=!1
-this.getX=function(){return m.x},this.setX=function(e){m.x=e},this.getY=function(){return m.y},this.setY=function(e){m.y=e},this.getWidth=function(){return w},this.getHeight=function(){return x},this.isJumping=function(){return R.JUMPING==y},this.isPerformingAction=function(){return P},this.isLeft=function(){return E},this.isRight=function(){return I},this.isFacingLeft=function(){return v},this.getState=function(){return y},this.getAccelerationX=function(){return S},this.getAccelerationY=function(){return A},this.getSpeedX=function(){return m.dx},this.getSpeedY=function(){return m.dy},this.setEntity=function(e){m=e},this.update=function(e,t){E=!1,I=!1,T=!1,P=!1,8===(8&e)&&(T=!0,b++,R.JUMPING!=y?(jumpingPressed=!0,b=0,y=R.JUMPING,m.dy=L,m.grounded=!1):jumpingPressed&&b>=M?jumpingPressed=!1:jumpingPressed&&(m.dy=L)),0===(8&e)&&(jumpingPressed=!1),4===(4&e)&&(P=!0),2===(2&e)?(E=!0,v=!0,R.JUMPING!=y&&(y=R.WALKING),S>0&&(m.dx=0),S=-m.accel):1===(1&e)?(I=!0,v=!1,R.JUMPING!=y&&(y=R.WALKING),0>S&&(m.dx=0),S=m.accel):(R.JUMPING!=y&&(y=R.IDLE),S=0),!0===m.grounded&&R.JUMPING===y&&(y=R.IDLE),A=m.gravity,S*=t,A*=t,m.dx+=S,m.dy+=A,0===S?(m.dx*=G,m.dx>0&&m.dx<H&&(m.dx=0),m.dx<0&&m.dx>-H&&(m.dx=0)):(m.dx>m.maxdx&&(m.dx=m.maxdx),m.dx<-m.maxdx&&(m.dx=-m.maxdx)),p=v?s:d,R.WALKING===y?p=v?l:f:R.JUMPING===y&&(p=m.dy>0?v?h:c:v?u:g),p.update(t)},this.render=function(e,t){if(null!==p){var i=RefGameHeight-(m.y+m.height)
+var m,p=null,w=s.getFrame().width,x=s.getFrame().height,y={IDLE:1,WALKING:2,JUMPING:3,DYING:4},R=y.IDLE,v=!1,b=0,S=0,A=0,M=10,L=10,T=.5,H=.1,G=!1,E=!1,I=!1,P=!1
+this.getX=function(){return m.x},this.setX=function(e){m.x=e},this.getY=function(){return m.y},this.setY=function(e){m.y=e},this.getWidth=function(){return w},this.getHeight=function(){return x},this.isJumping=function(){return y.JUMPING==R},this.isPerformingAction=function(){return P},this.isLeft=function(){return G},this.isRight=function(){return E},this.isFacingLeft=function(){return v},this.getState=function(){return R},this.getAccelerationX=function(){return S},this.getAccelerationY=function(){return A},this.getSpeedX=function(){return m.dx},this.getSpeedY=function(){return m.dy},this.setEntity=function(e){m=e},this.update=function(e,t){G=!1,E=!1,I=!1,P=!1,8===(8&e)&&(I=!0,b++,y.JUMPING!=R?(jumpingPressed=!0,b=0,R=y.JUMPING,m.dy=L,m.grounded=!1):jumpingPressed&&b>=M?jumpingPressed=!1:jumpingPressed&&(m.dy=L)),0===(8&e)&&(jumpingPressed=!1),4===(4&e)&&(P=!0),2===(2&e)?(G=!0,v=!0,y.JUMPING!=R&&(R=y.WALKING),S>0&&(m.dx=0),S=-m.accel):1===(1&e)?(E=!0,v=!1,y.JUMPING!=R&&(R=y.WALKING),0>S&&(m.dx=0),S=m.accel):(y.JUMPING!=R&&(R=y.IDLE),S=0),!0===m.grounded&&y.JUMPING===R&&(R=y.IDLE),A=m.gravity,S*=t,A*=t,m.dx+=S,m.dy+=A,0===S?(m.dx*=T,m.dx>0&&m.dx<H&&(m.dx=0),m.dx<0&&m.dx>-H&&(m.dx=0)):(m.dx>m.maxdx&&(m.dx=m.maxdx),m.dx<-m.maxdx&&(m.dx=-m.maxdx)),p=v?s:d,y.WALKING===R?p=v?l:f:y.JUMPING===R&&(p=m.dy>0?v?h:c:v?u:g),p.update(t)},this.render=function(e,t){if(null!==p){var i=RefGameHeight-(m.y+m.height)
 e.drawImage(n,p.getFrame().x,p.getFrame().y,w,x,(m.x-t.getPos().x)*ScreenRatio,(i-t.getPos().y)*ScreenRatio,w*ScreenRatio,x*ScreenRatio)}}}function Level(e){function t(e){var t={}
 return t.monster="monster"==e.type,t.player="player"==e.type,t.treasure="treasure"==e.type,t.width=t.player?i.getWidth():d,t.height=t.player?i.getHeight():d,t.x=e.x,t.y=e.y-t.height,t.dx=0,t.dy=0,t.gravity=METER*(e.properties.gravity||GRAVITY),t.maxdx=METER*(e.properties.maxdx||MAXDX),t.maxdy=METER*(e.properties.maxdy||MAXDY),t.impulse=METER*(e.properties.impulse||IMPULSE),t.accel=t.maxdx/(e.properties.accel||ACCEL),t.friction=t.maxdx/(e.properties.friction||FRICTION),t.grounded=!1,t.left=e.properties.left,t.right=e.properties.right,t.start={x:t.x,y:t.y},t.bounds={x:t.x,y:t.y,width:t.width,height:t.height},t.killed=t.collected=0,t}var n=e,i=new Player(n.imgs.hero),o=n.imgs.lvl,r=o.getSprite(),a=o.getJson(),s={tw:a.width,th:a.height},d=20
 METER=d,GRAVITY=-9.8/3,MAXDX=1,MAXDY=60,ACCEL=1,FRICTION=1/6,IMPULSE=1500
 var h=function(e){return e*d},u=function(e){return Math.floor(e/d)},c=function(e,t){return m[e+t*s.tw]},g={},l=[],f=[],m=[],p=[],w=[]
 this.getHero=function(){return i},this.getWidth=function(){return s.tw*d},this.getHeight=function(){return s.th*d}
-var x,R,y,v=a.layers[0].data,b=a.layers[1].objects
-for(x=0;x<b.length;x++)switch(R=b[x],y=t(R),R.type){case"player":g=y,i.setEntity(y),p.push(y)
+var x,y,R,v=a.layers[0].data,b=a.layers[1].objects
+for(x=0;x<b.length;x++)switch(y=b[x],R=t(y),y.type){case"player":g=R,i.setEntity(R),p.push(R)
 break
-case"monster":l.push(y),p.push(y)
+case"monster":l.push(R),p.push(R)
 break
-case"treasure":f.push(y),w.push(y)}m=v
+case"treasure":f.push(R),w.push(R)}m=v
 for(var S=0,A=s.th-1,M=0;M<v.length;M++){if(0!=v[M]){var L={}
-L.renderdata=v[M],L.bounds={x:h(S),y:h(A),width:d,height:d},w.push(L)}S++,S>=s.tw&&(S=0,A--)}var G=new CollisionManager(w,p)
-this.update=function(e,t){i.update(e,t),G.checkCollisionandUpdatePosition()},this.render=function(e,t){var n,o,h
+L.renderdata=v[M],L.bounds={x:h(S),y:h(A),width:d,height:d},w.push(L)}S++,S>=s.tw&&(S=0,A--)}var T=new CollisionManager(w,p)
+this.update=function(e,t){i.update(e,t),T.checkCollisionandUpdatePosition()},this.render=function(e,t){var n,o,h
 for(o=0;o<s.th;o++)for(n=0;n<s.tw;n++)h=c(n,o),h&&e.drawImage(r,a.tilewidth*(h-1),0,a.tilewidth,a.tileheight,(n*d-t.getPos().x)*ScreenRatio,(RefGameHeight+(o-s.th)*d-t.getPos().y)*ScreenRatio,d*ScreenRatio,d*ScreenRatio)
 i.render(e,t)}}function Background(e,t,n,i,o,r,a){var s=t,d=n,h=i,u=o,c=r,g=a,l=0,f=0,m=parseFloat((width/(u*ScreenRatio)).toFixed(1))+2,p=1
 this.getThis=function(){return this},this.update=function(e){m=parseFloat((width/(u*ScreenRatio)).toFixed(1))+2,l=(-e.getPos().x*g).toFixed(1)%(u*ScreenRatio),f=(RefGameHeight-e.getPos().y)*ScreenRatio},this.render=function(e){var t=l>0?-1:0,n=f>0?-1:0

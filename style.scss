@@ -320,6 +320,11 @@ nav {
   @include landscape {
     margin: 0;
   }
+  	@include tinymobile {
+      margin: 0 0.7em;
+      color: $blue;
+	  font-size: 0.5em;
+    }
 
   a {
 	float:left;
@@ -336,11 +341,7 @@ nav {
       color: $blue;
     }
 	
-	@include tinymobile {
-      margin: 0 0.7em;
-      color: $blue;
-	  font-size: 0.7em;
-    }
+
 	
 	
 	
