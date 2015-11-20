@@ -15,8 +15,10 @@ Two weeks have been necessary to add all these functionalities to the [html5 gam
 ## <a name="adding_physics"></a>Adding physics
 
 Adding physics was the first step, I added acceleration to the player, including gravity which is a negative y acceleration.
-This follow the [block bunny tutorial](https://github.com/awwong1/BlockBunny) which was really well explained.
+This follow the [github tutorial](https://github.com/awwong1/BlockBunny) which was really well explained.
 It was not so difficult to transform it to javascript as below :
+
+First input for jumping, the loop checks if you are pressing the jump button, the more you press it the higher is your jump :
 
 ```javascript
 if(8===(input & 8)) {//1000 JUMP
@@ -36,16 +38,12 @@ if(8===(input & 8)) {//1000 JUMP
 				}
 			}
 		}	
-	
-}
-if(0===(input & 8)) {
-	jumpingPressed = false;
-}
+	}
+```
 
-if(4===(input & 4)) {//0100 ACTION (SPACE)
-	action=true;
-}
+Then we check the left/right actions to add positive or negative acceleration :
 
+```javascript
 if(2===(input & 2)) {//0010 LEFT		
 	facingLeft=true;
 	if (PlayerState.JUMPING!=state) {
@@ -65,44 +63,21 @@ if(2===(input & 2)) {//0010 LEFT
 	}
 	accX = 0;
 }
+```
 
-//--------------UPDATE ACCELERATION -----------
-// If entity is grounded then reset the state to IDLE 
-if (true===entity.grounded && PlayerState.JUMPING===state) {
-	state = PlayerState.IDLE;
-}
+After we manage inputs, we add gravity and change the velocity
+
+```javascript
+
 // Setting initial vertical acceleration 
 accY = entity.gravity ;
 
-// Convert acceleration to frame time
-accX*=dt;
-accY*=dt;
 	
 // apply acceleration to change velocity
 entity.dx += accX;
 entity.dy += accY;
-
-// apply damping to halt player nicely only if acceleration = 0 
-if(accX === 0) {
-	entity.dx *= DAMP;				
-	//  apply damping to halt to MIN_VEL 
-	if (entity.dx > 0 && entity.dx < MIN_VEL) {
-		entity.dx = 0;
-	}
-	if (entity.dx < 0 && entity.dx > -MIN_VEL ) {
-		entity.dx = 0;
-	}	
-}
-else { //limit acceleration
-	// ensure terminal velocity is not exceeded
-	if (entity.dx > entity.maxdx ) {
-		entity.dx = entity.maxdx ;
-	}
-	if (entity.dx < -entity.maxdx ) {
-		entity.dx = -entity.maxdx ;
-	}
-}
 ```
+
 
 This is it, the gravity and ths user inputs have been added in the player update loop.
  
