@@ -170,13 +170,19 @@ img {
 		/*width: 100vw; inutile*/
 		max-width: 100%;
 		height: 70vh;	
-border: 1px solid black;		
+border: 1px solid black;	
+position: relative;	
+}
+
+.canvas-wrapper #canvas,#game-over ,#menu-wrapper{
+position: absolute;
 }
 
 #canvas {
 		width: 100%;
 		height: 100%;
 		background: transparent;
+  z-index:0;
 
 }
 
@@ -189,7 +195,6 @@ border: 1px solid black;
 		height: auto;
 		width: 100%;
 		height: 100%;
-		position: relative;
 }
 
 
@@ -206,12 +211,12 @@ border: 1px solid black;
 #game-over {
   display: none;
   text-align: center;
- 
-  z-index: 1;
+   left:25%;
+  top:10%;
+  z-index: 99;
   width: 50%;
   height: auto;
   margin: auto auto;
-  position: relative;
   background: rgba(100, 180, 255, 0.8);
 }
 
