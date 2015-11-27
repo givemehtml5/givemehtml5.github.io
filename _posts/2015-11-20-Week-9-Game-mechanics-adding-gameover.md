@@ -60,7 +60,7 @@ for (var x = 0; x < MovableEntities.length; x++) {
 }
 ```
 
-And that's all, it's now easy to add other dead condition, there are no victory conditions so far as there are no enemy to kill.
+And that's all, it's now easy to add other death conditions, there are no victory conditions so far as there are no enemy to kill.
 
 Next week, I'm going to include the bad guys !
 

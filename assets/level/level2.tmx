@@ -9,13 +9,19 @@
   </data>
  </layer>
  <objectgroup name="Object Layer 1">
-  <object name="player" type="player" x="96" y="480" width="32" height="32"/>
-  <object name="monster" type="monster" x="1152" y="872" width="32" height="32">
+  <object name="player" type="player" x="276" y="620" width="32" height="32"/>
+  <object name="monster" type="monster" x="548" y="1144" width="32" height="32">
    <properties>
     <property name="maxdx" value="10"/>
     <property name="right" value="true"/>
    </properties>
   </object>
   <object name="treasure" type="treasure" x="1244" y="876" width="32" height="32"/>
+  <object name="monster" type="monster" x="896" y="872" width="32" height="32">
+   <properties>
+    <property name="maxdx" value="10"/>
+    <property name="right" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
