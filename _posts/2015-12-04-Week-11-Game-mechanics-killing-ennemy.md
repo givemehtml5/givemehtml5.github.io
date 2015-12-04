@@ -33,6 +33,7 @@ The ennemy have, like all entities, a death variable which let the game knows if
 I added a `killable` parameter to prevent the hero to kill the Map... but that could be integrated in some gameplays.
 
 Then we just have to check if the hero is dead, and if he killed all ennemies. 
+
 ```javascript
 //check victory/condition
 if(level.getHero().Isdead()>0) game.gameOver();
