@@ -174,7 +174,7 @@ border: 1px solid black;
 position: relative;	
 }
 
-.canvas-wrapper #canvas,#game-over ,#menu-wrapper{
+.canvas-wrapper #canvas,#game-over,#game-win ,#menu-wrapper{
 position: absolute;
 }
 
@@ -208,7 +208,7 @@ position: absolute;
 }
 
 
-#game-over {
+#game-over,#game-win {
   display: none;
   text-align: center;
    left:25%;

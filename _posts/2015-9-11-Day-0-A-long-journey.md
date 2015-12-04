@@ -24,9 +24,6 @@ HTML5 is cross-platform (hopefully) and I prefer learning JS instead of working 
 As I said, I like the game experience of vintage platformers, that's why the game will include these items which are the main visual components of a good [html5 game](http://givemehtml5.github.io).
 Unfortunately I'm not an artist... That's why I may use some arts from people who know how to draw a hero! 
 
-## Multiplayer server: Node.js
-I already experienced multiplayer game development on node.js servers and it works fine and with enough speed for platformer games.
-
 ## <a name="game_engine"></a>HTML5 Game engine: My own 
 I think this kind of game is easy enough to use my own game engine. 
 I don't want to be stuck with an existing game engine or with a physic engine as it will become really handy when I will start developing real-time multiplayer module.

@@ -1,24 +1,31 @@
 ---
 layout: default
 ---
-<h1 class="game_title">Html5 game version 0.6</h1>
+<h1 class="game_title">Html5 game version 0.7</h1>
 <div class="canvas-wrapper">
-	<div id="menu-wrapper">
+		<div id="menu-wrapper">
 		<div id="menu">
 			<ul>
 			  <li><a href="#" onclick="return false;" class="button play">Start Game</a></li>
 			</ul>
 		</div>
 		</div>
-		<div id="game-over">
-		<h2>You are ...dead</h2>
-       <a href="#" onclick="return false;" class="button restart">Try again?</a>
-    </div>
-	<canvas id="canvas">
+	<canvas id="canvas" >
 			Your browser does not support canvas. Please try again with a different browser.
-		</canvas>		
-</div>	
+		</canvas>	
+
+	<div id="game-over">
+		<h2>You are ...dead</h2>
+       <a href="#" onclick="return false;" class="button GOrestart">Try again?</a>
+    </div>
+	
+	<div id="game-win">
+		<h2>You WIN !!</h2>
+       <a href="#" onclick="return false;" class="button WINrestart">Try again?</a>
+    </div>
+	
+	</div>		
 
 
 	
-<script src="game_v0.6.js"></script>
+<script src="game_v0.7.js"></script>
