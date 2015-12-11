@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="48" tilewidth="32" tileheight="32" backgroundcolor="#000000">
+ <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32">
+  <image source="../../../Part 5/assets/level/tiles.png" width="160" height="32"/>
+ </tileset>
+ <layer name="background" width="200" height="48">
+  <data encoding="base64" compression="zlib">
+   eJzt2eEKgjAUhmHt/i86gn6E7SsRa+fU84AgYhDb3mS2LsDIej+AZ/qATB+Q6QMyfUCmD8j0AZk+INMHZPqATB+Q6QMyfUCmD8j0AZk+INMHZPqATB+Q6YMjLg9HunZ5c20ZfL4afXDEaF1v13da+3vOq9AHR6Q+0vPkVROje6qo2Ef1McPzY4bUhFbq2bv/WA6eV7AudfrYs/6rjR+/rVofZ9xDLZ3nTB98Wuc50wef0GV/8U61Puw/fsd2j95x7ir1cbN9rzv635U+ur93rNbHSPcx/ned561DHzCLPiDTB2T6gEwfkOkDXtMHZPqATB+Q6QMyfUCmj/+znnzM+D7foo/vOHtNzlzPFRizeYwvj6rPn99YZpr9vLdeqewKhisB6w==
+  </data>
+ </layer>
+ <layer name="nodeA" width="200" height="48">
+  <data encoding="base64" compression="zlib">
+   eJzt0sENACEMA7A+2H/mW4AH6AqKkD1AFUKqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1oywW7s3OvOTIeVPU3L8deMdr3TVrbsXPXPSzX3ZMjOpu0jNBUDVB0BdADk=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object name="player" type="player" x="276" y="620" width="32" height="32"/>
+  <object name="monster" type="monster" x="548" y="1144" width="32" height="32">
+   <properties>
+    <property name="maxdx" value="10"/>
+    <property name="right" value="true"/>
+   </properties>
+  </object>
+  <object name="treasure" type="treasure" x="1244" y="876" width="32" height="32"/>
+  <object name="monster" type="monster" x="896" y="872" width="32" height="32">
+   <properties>
+    <property name="maxdx" value="10"/>
+    <property name="right" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
