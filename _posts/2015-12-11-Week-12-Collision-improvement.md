@@ -62,7 +62,7 @@ if(no_collision_in_x_or_y) {
 
 In such case, I gave the priority to y direction, that will help the player not to die if he gets right on the side of a block
 
-## <a name="bullet_management_html5_game"></a>Bonus : bullets
+## <a name="bullet_management_html5_game"></a>Bonus.. bullets
 
 I added this week some bullets when you press on action area or spacebar.
 It's a specific Movable entity which can collide to everything but this has still to be coded. So far the bullet just go through the screen.
